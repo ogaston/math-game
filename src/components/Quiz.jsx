@@ -11,50 +11,36 @@ class Quiz extends React.Component {
         problem: "",
         aswer: 0,
         level: 1,
-        live: 3,
+        lives: 3,
         modal: "",
         modalShowing: false
     };
 
     correctAswer = () => {
-        this._isMounted && this.setState(prevState => {
-            return {
-                points: prevState.points + prevState.level * 100
-            };
-        });
-
         this.showModal("Correcto", "sucess");
+        this._isMounted && this.props.onCorretAswer()
         this.nextProblem()
-
     };
 
     componentDidMount() {
         this._isMounted = true;
         this.generateAnotherProblem();
-        this._secondsIntervalRef = setInterval(() => this.setState(prevState => ({
-            seconds: --prevState.seconds
-        })), 1000)
     }
 
     shouldComponentUpdate(nextProps, nextState) {
-        if ((this.state.live < 0) || (this.state.seconds < 0)) {
-            this.props.endGame(this.state.points)
+        if (this.props.lives < 1) {
+            this.props.onEndGame(this.state.points)
             return false;
         }
-        return nextState.live > -1;
+        return nextState.lives > -1;
     }
 
     componentWillUnmount() {
         this._isMounted = false;
-        clearInterval(this._secondsIntervalRef)
     }
 
     wrongAswer = () => {
-        this._isMounted && this.setState(prevState => {
-            return {
-                live: prevState.live - 1
-            };
-        });
+        this._isMounted && this.props.onWrongAswer();
 
         this.showModal("Mal", "error");
         this.nextProblem()
@@ -118,9 +104,8 @@ class Quiz extends React.Component {
         return ( 
         <section>
             <div>
-                PUNTOS: {this.state.points} < br />
-                VIDAS: {this.state.live} < br />
-                TIEMPO: {this.state.seconds} 
+                PUNTOS: {this.props.points} < br />
+                VIDAS: {this.props.lives} < br />
             </div> 
             <div> 
             {this.state.modalShowing ? 

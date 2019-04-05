@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux"
+import { mapDispatchToProps, mapStateToProps } from './redux/index'
 import Start from './containers/Start';
 import MathQuiz from './containers/MathQuiz';
 import './App.css';
@@ -18,7 +20,11 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           {
-            !this.state.started ? (<Start startPressed={this.gameStart} />) : (<MathQuiz />)
+            !this.state.started ? (
+              <Start startPressed={this.gameStart} />
+            ) : (
+              <MathQuiz { ...this.props} gameStart={this.gameStart}/>
+            )
           }
         </header>
       </div>
@@ -26,4 +32,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);

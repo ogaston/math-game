@@ -4,7 +4,7 @@ class Beginning extends React.Component {
   state = {
     msg: 3
   };
-  intervalRef = {};
+  intervalRef;
 
   componentDidMount() {
     this.intervalRef = setInterval(
@@ -32,6 +32,7 @@ class Beginning extends React.Component {
   }
 
   render() {
+    console.log(this.props)
     return (
       <div>
         <h3>INICIANDO JUEGO...</h3>

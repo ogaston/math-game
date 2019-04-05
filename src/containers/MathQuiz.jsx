@@ -2,16 +2,17 @@ import React from 'react';
 import Beginning from "../components/Beginning";
 import Quiz from "../components/Quiz";
 import Done from "../components/Done";
+import Timmer from '../components/Timmer';
 
 class MathQuiz extends React.Component {
   state = {
     isBeginningDone: false,
-    isFinished: false,
     lastPoints: 0
   };
 
-  endGame = (points) => {
-    this.setState({ lastPoints: points, isFinished: true})
+  retryGame = () => {
+    this.setState({ isBeginningDone: false })
+    this.props.onRetryGame();
   }
 
   completeBeginning = () => {
@@ -19,16 +20,20 @@ class MathQuiz extends React.Component {
   };
 
   render() {
-    return !this.state.isFinished ? (
+    console.log(this.props)
+    return !this.props.isFinished ? (
       <div>
         {!this.state.isBeginningDone ? (
-            <Beginning isComplete={this.completeBeginning} />
+          <Beginning isComplete={this.completeBeginning} />
         ) : (
-            <Quiz endGame={this.endGame} />
+          <div>
+            <Timmer {...this.props} />
+            <Quiz {...this.props} />
+          </div>
         )}
       </div>
-    ):(
-        <Done points={this.state.lastPoints} />
+    ) : (
+      <Done {...this.props} retryGame={this.retryGame} />
     );
   }
 }
