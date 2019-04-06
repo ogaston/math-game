@@ -1,6 +1,6 @@
 import {
-  correctAswer,
-  wrongAswer,
+  correctAnswer,
+  wrongAnswer,
   timeChaged,
   stateGame
 } from "./actions/index";
@@ -18,8 +18,8 @@ export const mapStateToProps = state => {
 
 export const mapDispatchToProps = dispatch => {
   return {
-    onCorretAswer: s => dispatch(correctAswer(s)),
-    onWrongAswer: () => dispatch(wrongAswer()),
+    onCorretAnswer: s => dispatch(correctAnswer(s)),
+    onWrongAnswer: () => dispatch(wrongAnswer()),
     setTimeChanged: s => dispatch(timeChaged(s)),
     onEndGame: () => dispatch(stateGame(true)),
     onRetryGame: () => dispatch(stateGame(false))

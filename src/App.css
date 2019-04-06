@@ -45,18 +45,22 @@
   text-align: center;
 }
 
-.correct-aswer {
-    padding: 1em;
-    border-radius: 7px;
-    background: linear-gradient(120deg, rgb(49, 205, 97) 30%, rgb(94, 209, 10) 70%);
+.correct-answer {
+    /*background: linear-gradient(120deg, rgb(49, 205, 97) 30%, rgb(94, 209, 10) 70%);*/
+    color: rgb(49, 205, 97);
 }
 
-.wrong-aswer {
-  padding: 1em;
-  border-radius: 7px;
-  background: linear-gradient(120deg, rgb(255, 37, 99) 30%, rgb(255, 80, 7) 70%);
-
+.wrong-answer {
+  /*background: linear-gradient(120deg, rgb(255, 37, 99) 30%, rgb(255, 80, 7) 70%);*/
+    color: rgb(255, 37, 99)
 }
+
+.answer {
+    font-size: 5em;
+    padding: 1em 2em;
+    border-radius: 100px;
+}
+
 
 @keyframes App-logo-spin {
   from {

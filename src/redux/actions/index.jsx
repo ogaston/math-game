@@ -1,19 +1,17 @@
 import {
-  ADD_TIME,
-  GAIN_POINTS,
   REMOVE_LIVE,
-  CORRECT_ASWER,
+  CORRECT_ANSWER,
   SET_TIME,
   FINISH_GAME,
   RESTART_GAME
 } from "../constants/index";
 
-export const correctAswer = () => (dispatch) => {
-    dispatch({ type: CORRECT_ASWER, payload: { points: 100, level: 1} });
+export const correctAnswer = () => (dispatch) => {
+    dispatch({ type: CORRECT_ANSWER, payload: { points: 100, level: 1} });
     
 };
 
-export const wrongAswer = () => (dispatch) => {
+export const wrongAnswer = () => (dispatch) => {
     dispatch({ type: REMOVE_LIVE, payload: 1 });
 }
 

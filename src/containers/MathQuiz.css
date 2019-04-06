@@ -1,0 +1,12 @@
+.App-header-bar {
+    position: absolute;
+    top: 1em;
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
+    left: 1em;
+}
+
+.App-header-bar span {
+    flex: 1
+}

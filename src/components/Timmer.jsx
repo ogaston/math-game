@@ -44,9 +44,9 @@ class Timmer extends React.Component {
 
     render() {
         return (
-            <div>
-                <p>TIEMPO: <b>{ this.state.seconds }</b></p>
-            </div>
+            <span>
+                <i className="fas fa-clock"></i> <b>{ this.state.seconds }</b>
+            </span>
         )
     }
 }

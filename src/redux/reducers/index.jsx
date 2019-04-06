@@ -2,7 +2,7 @@ import {
   SET_TIME,
   GAIN_POINTS,
   REMOVE_LIVE,
-  CORRECT_ASWER,
+  CORRECT_ANSWER,
   FINISH_GAME,
   RESTART_GAME
 } from "../constants";
@@ -15,7 +15,7 @@ const initialState = {
   isFinished: false,
 };
 
-export const aswerQuiz = (state = initialState, action = {}) => {
+export const answerQuiz = (state = initialState, action = {}) => {
   switch (action.type) {
     case GAIN_POINTS:
       const newPonts = state.points + action.payload;
@@ -26,7 +26,7 @@ export const aswerQuiz = (state = initialState, action = {}) => {
       return Object.assign({}, state, {
         seconds: action.payload
       });
-    case CORRECT_ASWER:
+    case CORRECT_ANSWER:
       const newCorrectState = {
         points: state.points + action.payload.points,
         level: state.level + action.payload.level

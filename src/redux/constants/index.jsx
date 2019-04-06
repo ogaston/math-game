@@ -1,5 +1,5 @@
-export const CORRECT_ASWER = "CORRECT_ASWER";
-export const WRONG_ASWER = "WRONG_ASWER";
+export const CORRECT_ANSWER = "CORRECT_ANSWER";
+export const WRONG_ANSWER = "WRONG_ANSWER";
 export const SET_TIME = "SET_TIME";
 export const GAIN_POINTS = "GAIN_POINTS";
 export const REMOVE_LIVE = "REMOVE_LIVE";

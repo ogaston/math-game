@@ -1,4 +1,5 @@
 import React from 'react';
+import AnswerModal from './AnswerModal';
 
 class Quiz extends React.Component {
 
@@ -6,43 +7,40 @@ class Quiz extends React.Component {
     _secondsIntervalRef;
 
     state = {
-        points: 0,
-        seconds: 20,
         problem: "",
-        aswer: 0,
-        level: 1,
-        lives: 3,
+        answer: 0,
         modal: "",
         modalShowing: false
     };
 
-    correctAswer = () => {
-        this.showModal("Correcto", "sucess");
-        this._isMounted && this.props.onCorretAswer()
+    correctAnswer = () => {
+        this.showModal("sucess");
+        this._isMounted && this.props.onCorretAnswer()
         this.nextProblem()
     };
 
     componentDidMount() {
         this._isMounted = true;
         this.generateAnotherProblem();
+        this.answerInput.focus();
     }
 
-    shouldComponentUpdate(nextProps, nextState) {
+    shouldComponentUpdate(nextProps) {
         if (this.props.lives < 1) {
             this.props.onEndGame(this.state.points)
             return false;
         }
-        return nextState.lives > -1;
+        return nextProps.lives > -1;
     }
 
     componentWillUnmount() {
         this._isMounted = false;
     }
 
-    wrongAswer = () => {
-        this._isMounted && this.props.onWrongAswer();
+    wrongAnswer = () => {
+        this._isMounted && this.props.onWrongAnswer();
 
-        this.showModal("Mal", "error");
+        this.showModal("error");
         this.nextProblem()
     };
 
@@ -57,11 +55,12 @@ class Quiz extends React.Component {
 
     evaluateProblem = () => {
 
-        if (eval(this.state.problem) == this.state.aswer) {
-            return this.correctAswer();
+        // eslint-disable-next-line no-eval
+        if (eval(this.state.problem) == this.state.answer) {
+            return this.correctAnswer();
         }
 
-        return this.wrongAswer();
+        return this.wrongAnswer();
     };
 
     keyingUp = ev => {
@@ -69,18 +68,13 @@ class Quiz extends React.Component {
             this.evaluateProblem();
         }
         this.setState({
-            aswer: ev.target.value
+            answer: ev.target.value
         });
     };
 
-    showModal = (msg, type) => {
-        const classType = type === "sucess" ? "correct-aswer" : "wrong-aswer";
+    showModal = (type) => {
         this.setState({
-            modal: ( 
-            <div className = {classType}>
-                <h2> {msg} </h2> 
-            </div>
-            ),
+            modal: ( <AnswerModal type={type} />),
             modalShowing: true
         });
     };
@@ -103,18 +97,15 @@ class Quiz extends React.Component {
     render() {
         return ( 
         <section>
-            <div>
-                PUNTOS: {this.props.points} < br />
-                VIDAS: {this.props.lives} < br />
-            </div> 
             <div> 
             {this.state.modalShowing ? 
                 (
                     this.state.modal
                 ) : ( 
                     <div>
-                        <h1> {this.state.problem} </h1> 
+                        <h1 style={{ fontSize: "3.5em"}}> {this.state.problem} </h1> 
                         <input 
+                            ref={(input) => { this.answerInput = input; }}
                             className = "App-input"
                             type = "text"
                             placeholder = "Respuesta"
