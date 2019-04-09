@@ -50,14 +50,14 @@ class Quiz extends React.Component {
             this._isMounted && this.setState({
                 modalShowing: false
             });
-            this.answerInput.focus();
+            if (this.props.lives > 0) this.answerInput.focus();
         }, 2500)
     }
 
     evaluateProblem = () => {
 
         // eslint-disable-next-line no-eval
-        if (eval(this.state.problem) == this.state.answer) {
+        if (eval(this.state.problem) === +this.state.answer) {
             return this.correctAnswer();
         }
 

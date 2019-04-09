@@ -8,7 +8,6 @@ import {
 } from "./actions/index";
 
 export const mapStateToProps = state => {
-  console.log(state)
   return {
     points: state.points,
     lives: state.lives,

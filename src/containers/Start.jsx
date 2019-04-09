@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from "../logo.svg";
 
 class Start extends React.Component {
 
@@ -19,15 +18,21 @@ class Start extends React.Component {
     render (){
         return (
             <div>
-                <img src={logo} className="App-logo" alt="logo" />
+                <div className="App-brandname">
+                    <i className="fas fa-graduation-cap"></i> 
+                    <br/>    
+                    <h3>Do You Know</h3>     
+                    <h1>Math?</h1>
+                </div>
+                {/*<img src={logo} className="App-logo" alt="logo" />*/}
                 <input 
                     type="text" 
                     className="App-input App-input--sm" 
-                    placeholder="Ingrese su nombre" 
+                    placeholder="Insert your name" 
                     onChange={this.setNameOfPlayer}
                 />
                 <p>
-                    Presione para iniciar el juego
+                    Press to start the game
                 </p>
                 <button
                     className="App-link"
@@ -36,7 +41,7 @@ class Start extends React.Component {
                     rel="noopener noreferrer"
                     onClick={this.clicked}
                 >
-                    Empezar
+                    Start
                 </button>
             </div>
         )

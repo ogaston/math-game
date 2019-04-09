@@ -10,10 +10,10 @@ class Beginning extends React.Component {
     this.intervalRef = setInterval(
       () => this.setState(prevState => { 
           if (prevState.msg === 1) {
-            return { msg: "YA" };
+            return { msg: "GO" };
           }
 
-          if (prevState.msg === "YA") {
+          if (prevState.msg === "GO") {
             return { msg: undefined };
           }
           return {msg: prevState.msg - 1 }
@@ -32,10 +32,9 @@ class Beginning extends React.Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <div>
-        <h3>INICIANDO JUEGO...</h3>
+        <h3>GET READY...</h3>
         <h1>{this.state.msg}</h1>
       </div>
     );

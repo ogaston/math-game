@@ -10,11 +10,9 @@ class App extends Component {
 
   gameStart = () => {
     this.props.onStartGame();
-    console.log(this.props)
   }
   
   render() {
-    console.log(this.props.isStarted);
     return (
       <div className="App">
         <header className="App-header">
@@ -26,6 +24,9 @@ class App extends Component {
             )
           }
         </header>
+        <footer className="App-footer">
+          <small>made with ♥ by <a href="https://github.com/ogaston" rel="noopener noreferrer" target="_blank">Omar Gaston</a></small>
+        </footer>
       </div>
     );
   }

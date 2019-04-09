@@ -24,7 +24,6 @@ class MathQuiz extends React.Component {
   };
 
   render() {
-    console.log(this.props)
     return !this.props.isFinished ? (
       <div>
         {!this.state.isBeginningDone ? (

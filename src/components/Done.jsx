@@ -18,18 +18,22 @@ const style = {
   divider : {
     height: 0,
     border: "0.5px solid #61dafb",
+  },
+  poinstStyle: {
+    color: "#61dafb",
+    fontWeight: "bold"
   }
 }
 
 class Done extends React.Component {
 
   render() {
-    const { divider, buttonRetry, otherButton } = style;
+    const { divider, buttonRetry, otherButton, poinstStyle } = style;
         return (
           <div>
-            <h1>FIN DEL JUEGO</h1>
+            <h1>GAME OVER</h1>
             <hr style={divider} />
-            <h3>PUNTOS FINALES <b>{this.props.points}</b></h3>
+            <h3>FINAL SCORE <b style={poinstStyle}>{this.props.points}</b></h3>
             <br/>
             <h3 style={buttonRetry} onClick={this.props.retryGame}>RETRY</h3>
             <h5 style={otherButton} onClick={this.props.onReStartGame}>Another player</h5>
