@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/ogaston/math-game/static/css/main.e692df94.chunk.css"
   },
   {
-    "revision": "9f1051edf6324080c29bb70e3eaeb282",
+    "revision": "a42352e99ea48336acacb2f130e82519",
     "url": "/ogaston/math-game/index.html"
   }
 ];

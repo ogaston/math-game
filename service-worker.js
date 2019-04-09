@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/ogaston/math-game/precache-manifest.58c04a4692005672cc4f170ae7aea3c2.js"
+  "/ogaston/math-game/precache-manifest.7490b2efce37129bbf7620620285466f.js"
 );
 
 workbox.clientsClaim();
