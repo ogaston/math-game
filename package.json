@@ -2,7 +2,7 @@
   "name": "math-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/ogaston/math-game",
+  "homepage": "https://ogaston.github.io/math-game",
   "dependencies": {
     "gh-pages": "^2.0.1",
     "react": "^16.8.6",
