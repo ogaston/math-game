@@ -7,20 +7,19 @@ import './App.css';
 
 class App extends Component {
   
-  state = {
-    started: false
-  }
 
   gameStart = () => {
-    this.setState({ started: true });
+    this.props.onStartGame();
+    console.log(this.props)
   }
   
   render() {
+    console.log(this.props.isStarted);
     return (
       <div className="App">
         <header className="App-header">
           {
-            !this.state.started ? (
+            !this.props.isStarted ? (
               <Start startPressed={this.gameStart} />
             ) : (
               <MathQuiz { ...this.props} gameStart={this.gameStart}/>

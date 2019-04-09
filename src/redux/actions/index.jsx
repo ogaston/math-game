@@ -3,7 +3,9 @@ import {
   CORRECT_ANSWER,
   SET_TIME,
   FINISH_GAME,
-  RESTART_GAME
+  RESTART_GAME,
+  REBOOT_GAME,
+  START_GAME
 } from "../constants/index";
 
 export const correctAnswer = () => (dispatch) => {
@@ -27,3 +29,13 @@ export const stateGame = (bol) => (dispatch) => {
         dispatch({ type: RESTART_GAME, payload: true });
     }
 }
+
+export const reStartGame = () => (dispatch) => {
+    dispatch({ type: REBOOT_GAME });
+}
+
+export const startGame = () => (dispatch) => {
+    dispatch({ type: START_GAME });
+}
+
+

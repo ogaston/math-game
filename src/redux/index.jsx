@@ -2,7 +2,9 @@ import {
   correctAnswer,
   wrongAnswer,
   timeChaged,
-  stateGame
+  stateGame,
+  reStartGame,
+  startGame
 } from "./actions/index";
 
 export const mapStateToProps = state => {
@@ -12,7 +14,8 @@ export const mapStateToProps = state => {
     lives: state.lives,
     seconds: state.seconds,
     level: state.level,
-    isFinished: state.isFinished
+    isFinished: state.isFinished,
+    isStarted: state.isStarted
   };
 };
 
@@ -22,6 +25,8 @@ export const mapDispatchToProps = dispatch => {
     onWrongAnswer: () => dispatch(wrongAnswer()),
     setTimeChanged: s => dispatch(timeChaged(s)),
     onEndGame: () => dispatch(stateGame(true)),
-    onRetryGame: () => dispatch(stateGame(false))
+    onRetryGame: () => dispatch(stateGame(false)),
+    onReStartGame: () => dispatch(reStartGame()),
+    onStartGame: () => dispatch(startGame()),
   };
 };

@@ -4,7 +4,9 @@ import {
   REMOVE_LIVE,
   CORRECT_ANSWER,
   FINISH_GAME,
-  RESTART_GAME
+  RESTART_GAME,
+  REBOOT_GAME,
+  START_GAME
 } from "../constants";
 
 const initialState = {
@@ -13,6 +15,7 @@ const initialState = {
   seconds: 20,
   level: 1,
   isFinished: false,
+  isStarted: false,
 };
 
 export const answerQuiz = (state = initialState, action = {}) => {
@@ -48,6 +51,19 @@ export const answerQuiz = (state = initialState, action = {}) => {
         seconds: 20,
         level: 1,
         isFinished: false,
+      });
+    case START_GAME:
+      return Object.assign({}, state, {
+        isStarted: true,
+      });
+    case REBOOT_GAME:
+      return Object.assign({}, state, {
+        points: 0,
+        lives: 3,
+        seconds: 20,
+        level: 1,
+        isFinished: false,
+        isStarted: false,
       });
     default:
       return state;

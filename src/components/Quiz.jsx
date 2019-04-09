@@ -50,6 +50,7 @@ class Quiz extends React.Component {
             this._isMounted && this.setState({
                 modalShowing: false
             });
+            this.answerInput.focus();
         }, 2500)
     }
 
