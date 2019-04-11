@@ -9,7 +9,7 @@ This is a simple game where you have to solve some math problems and earn points
 The Math game get some random numbers and operations to put together and create the problems that you must solve, everytime you insert the correct answer, your points and the time will be increased.
 
 ### TO-DO List
-
+- Test implementations
 - Change the difficult of the problem according to the level.
 - Earn lives when you do a streak.
 - Use more complex math operations in the highest levels.
@@ -17,6 +17,6 @@ The Math game get some random numbers and operations to put together and create 
 
 ### Online Example
 
-An online example of the app will be in  https://ogaston.github.io/math-game/, soon -.-
+An online example of the app will be in  https://ogaston.github.io/math-game/
 
 
