@@ -4,6 +4,7 @@ import { mapDispatchToProps, mapStateToProps } from './redux/index'
 import Start from './containers/Start';
 import MathQuiz from './containers/MathQuiz';
 import './App.css';
+import Footer from './components/Footer';
 
 class App extends Component {
   
@@ -24,9 +25,7 @@ class App extends Component {
             )
           }
         </header>
-        <footer className="App-footer">
-          <small>made with ♥ by <a href="https://github.com/ogaston" rel="noopener noreferrer" target="_blank">Omar Gaston</a></small>
-        </footer>
+        <Footer></Footer>
       </div>
     );
   }

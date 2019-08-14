@@ -6,12 +6,13 @@ import {
   FINISH_GAME,
   RESTART_GAME,
   REBOOT_GAME,
-  START_GAME
+  START_GAME,
+  EARN_LIFE
 } from "../constants";
 
 const initialState = {
   points: 0,
-  lives: 3,
+  lifes: 3,
   seconds: 20,
   level: 1,
   isFinished: false,
@@ -36,9 +37,9 @@ export const answerQuiz = (state = initialState, action = {}) => {
       };
       return Object.assign({}, state, newCorrectState);
     case REMOVE_LIVE:
-      const newLive = state.lives - action.payload;
+      const newLive = state.lifes - action.payload;
       return Object.assign({}, state, {
-        lives: newLive
+        lifes: newLive
       });
     case FINISH_GAME:
       return Object.assign({}, state, {
@@ -47,7 +48,7 @@ export const answerQuiz = (state = initialState, action = {}) => {
     case RESTART_GAME:
       return Object.assign({}, state, {
         points: 0,
-        lives: 3,
+        lifes: 3,
         seconds: 20,
         level: 1,
         isFinished: false,
@@ -56,10 +57,14 @@ export const answerQuiz = (state = initialState, action = {}) => {
       return Object.assign({}, state, {
         isStarted: true,
       });
+    case EARN_LIFE: 
+      return Object.assign({}, state, {
+        lifes: state.lifes + 1
+      });
     case REBOOT_GAME:
       return Object.assign({}, state, {
         points: 0,
-        lives: 3,
+        lifes: 3,
         seconds: 20,
         level: 1,
         isFinished: false,

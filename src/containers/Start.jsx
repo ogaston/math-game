@@ -1,4 +1,7 @@
 import React from 'react';
+import Button from '../components/Button';
+import Input from '../components/Input';
+import { Session } from '../utils/storage'
 
 class Start extends React.Component {
 
@@ -11,7 +14,7 @@ class Start extends React.Component {
     }
 
     clicked = () => {
-        sessionStorage.setItem("onlinePlayer", this.state.player)
+        Session.set("onlinePlayer", this.state.player)
         this.props.startPressed();
     }
 
@@ -24,25 +27,11 @@ class Start extends React.Component {
                     <h3>Do You Know</h3>     
                     <h1>Math?</h1>
                 </div>
-                {/*<img src={logo} className="App-logo" alt="logo" />*/}
-                <input 
-                    type="text" 
-                    className="App-input App-input--sm" 
-                    placeholder="Insert your name" 
-                    onChange={this.setNameOfPlayer}
-                />
+                <Input text="Insert your name" onInputChange={this.setNameOfPlayer} />
                 <p>
                     Press to start the game
                 </p>
-                <button
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={this.clicked}
-                >
-                    Start
-                </button>
+                <Button isClicked={this.clicked}>Start</Button>
             </div>
         )
     }

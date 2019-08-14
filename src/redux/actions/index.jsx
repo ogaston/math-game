@@ -5,7 +5,8 @@ import {
   FINISH_GAME,
   RESTART_GAME,
   REBOOT_GAME,
-  START_GAME
+  START_GAME,
+  EARN_LIFE
 } from "../constants/index";
 
 export const correctAnswer = () => (dispatch) => {
@@ -38,4 +39,6 @@ export const startGame = () => (dispatch) => {
     dispatch({ type: START_GAME });
 }
 
-
+export const earnLife = () => dispatch => {
+    dispatch({ type: EARN_LIFE });
+}

@@ -4,13 +4,14 @@ import {
   timeChaged,
   stateGame,
   reStartGame,
-  startGame
+  startGame,
+  earnLife
 } from "./actions/index";
 
 export const mapStateToProps = state => {
   return {
     points: state.points,
-    lives: state.lives,
+    lifes: state.lifes,
     seconds: state.seconds,
     level: state.level,
     isFinished: state.isFinished,
@@ -27,5 +28,6 @@ export const mapDispatchToProps = dispatch => {
     onRetryGame: () => dispatch(stateGame(false)),
     onReStartGame: () => dispatch(reStartGame()),
     onStartGame: () => dispatch(startGame()),
+    onEarnLife: () => dispatch(earnLife()),
   };
 };

@@ -1,5 +1,6 @@
 import React from 'react';
 import AnswerModal from './AnswerModal';
+import { MathHelper } from '../utils';
 
 class Quiz extends React.Component {
 
@@ -10,27 +11,42 @@ class Quiz extends React.Component {
         problem: "",
         answer: 0,
         modal: "",
-        modalShowing: false
+        modalShowing: false,
+        streaks: 0
     };
 
     correctAnswer = () => {
-        this.showModal("sucess");
+        if (this.state.streaks > 2) {
+            this.props.onEarnLife()
+            this.showModal("sucess", "STREAK!! You won a life ♥");
+        } else {
+            this.showModal("sucess");
+        }
+
         this._isMounted && this.props.onCorretAnswer()
+        this.setState(
+            state => {
+                return {
+                    streaks: state.streaks + 1
+                }
+            }
+        )
+
         this.nextProblem()
     };
 
     componentDidMount() {
         this._isMounted = true;
-        this.generateAnotherProblem();
+        this.getProblem();
         this.answerInput.focus();
     }
 
     shouldComponentUpdate(nextProps) {
-        if (this.props.lives < 1) {
+        if (this.props.lifes < 1) {
             this.props.onEndGame(this.state.points)
             return false;
         }
-        return nextProps.lives > -1;
+        return nextProps.lifes > -1;
     }
 
     componentWillUnmount() {
@@ -39,28 +55,28 @@ class Quiz extends React.Component {
 
     wrongAnswer = () => {
         this._isMounted && this.props.onWrongAnswer();
-
-        this.showModal("error");
+        this.setState({
+            streaks: 0
+        })
+        this.showModal("error", MathHelper.solve(this.state.problem));
         this.nextProblem()
     };
 
     nextProblem = () => {
+        console.log(this.state)
         setTimeout(() => {
-            this.generateAnotherProblem()
+            this.getProblem()
             this._isMounted && this.setState({
                 modalShowing: false
             });
-            if (this.props.lives > 0) this.answerInput.focus();
+            if (this.props.lifes > 0) this.answerInput.focus();
         }, 2500)
     }
 
     evaluateProblem = () => {
-
-        // eslint-disable-next-line no-eval
-        if (eval(this.state.problem) === +this.state.answer) {
+        if (MathHelper.compare(this.state.problem , this.state.answer)) {
             return this.correctAnswer();
         }
-
         return this.wrongAnswer();
     };
 
@@ -68,28 +84,22 @@ class Quiz extends React.Component {
         if (ev.key === "Enter") {
             this.evaluateProblem();
         }
+        const val = ev.target.value
+
         this.setState({
-            answer: ev.target.value
+            answer: Number(val.match(/\d+/g))
         });
     };
 
-    showModal = (type) => {
+    showModal = (type, text) => {
         this.setState({
-            modal: ( <AnswerModal type={type} />),
-            modalShowing: true
+            modal: ( <AnswerModal type={type} text={text} />),
+            modalShowing: true,
         });
     };
 
-    getRandomSymbol = () => {
-        const symbols = ["+", "-", "/", "*"];
-        var min = 0;
-        var max = 3;
-        var random = Math.floor(Math.random() * (+max - +min) + +min);
-        return symbols[random];
-    }
-
-    generateAnotherProblem = () => {
-        const newProblem = `${(Math.random() * 100).toFixed()} ${this.getRandomSymbol()} ${(Math.random() * 100).toFixed()}`;
+    getProblem = () => {
+        const newProblem = MathHelper.generateProblem(this.props.points);
         this._isMounted && this.setState({
             problem: newProblem
         });
@@ -97,7 +107,7 @@ class Quiz extends React.Component {
 
     render() {
         return ( 
-        <section>
+        <section className="show-up">
             <div> 
             {this.state.modalShowing ? 
                 (
@@ -108,8 +118,9 @@ class Quiz extends React.Component {
                         <input 
                             ref={(input) => { this.answerInput = input; }}
                             className = "App-input"
-                            type = "text"
+                            type = "number"
                             placeholder = "Respuesta"
+                            min="0"
                             onKeyUp = {
                                 this.keyingUp
                             }/> 

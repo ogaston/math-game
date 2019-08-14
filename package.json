@@ -1,10 +1,11 @@
 {
   "name": "math-app",
-  "version": "0.1.0",
+  "version": "0.8.0",
   "private": true,
   "homepage": "https://ogaston.github.io/math-game",
   "dependencies": {
     "gh-pages": "^2.0.1",
+    "moment": "^2.24.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^6.0.1",

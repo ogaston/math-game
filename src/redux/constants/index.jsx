@@ -7,3 +7,4 @@ export const FINISH_GAME = "FINISH_GAME";
 export const RESTART_GAME = "RESTART_GAME";
 export const REBOOT_GAME = "REBOOT_GAME";
 export const START_GAME = "START_GAME";
+export const EARN_LIFE = "EARN_LIFE";

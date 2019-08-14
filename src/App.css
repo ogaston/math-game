@@ -96,8 +96,39 @@
 
 .answer {
     font-size: 5em;
-    padding: 1em 2em;
+    /* padding: 1em 2em; */
     border-radius: 100px;
+    animation-name: answerModal;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.show-up {
+  animation-name: show;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes show {
+  from {
+    opacity: 0.85;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+
+@keyframes answerModal {
+  from {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  to {
+    transform: scale(1.2);
+    opacity: 1;
+  }
 }
 
 

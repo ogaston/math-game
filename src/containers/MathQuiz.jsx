@@ -3,10 +3,9 @@ import Beginning from "../components/Beginning";
 import Quiz from "../components/Quiz";
 import Done from "../components/Done";
 import Timmer from '../components/Timmer';
-import Lives from '../components/Lives'
+import Lifes from '../components/Lifes'
 import Points from '../components/Points'
 import "./MathQuiz.css"
-
 
 class MathQuiz extends React.Component {
   state = {
@@ -30,12 +29,12 @@ class MathQuiz extends React.Component {
           <Beginning isComplete={this.completeBeginning} />
         ) : (
           <div>
-            <div className="App-header-bar">
-              <Timmer {...this.props} />
-              <Lives {...this.props} />
-              <Points {...this.props} />
-            </div>
-            <Quiz {...this.props} />
+              <div className="App-header-bar">
+                <Timmer {...this.props} />
+                <Lifes {...this.props} />
+                <Points {...this.props} />
+              </div>
+              <Quiz {...this.props} />
           </div>
         )}
       </div>

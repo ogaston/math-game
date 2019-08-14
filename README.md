@@ -11,7 +11,7 @@ The Math game get some random numbers and operations to put together and create 
 ### TO-DO List
 - Test implementations
 - Change the difficult of the problem according to the level.
-- Earn lives when you do a streak.
+- Earn lifes when you do a streak.
 - Use more complex math operations in the highest levels.
 - Avoid the inaccurate divisions, ex. 98/76.
 
