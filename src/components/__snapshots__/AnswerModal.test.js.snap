@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AnswerModal component Matches the snapshot 1`] = `
+<DocumentFragment>
+  <section>
+    <div
+      class="answer  wrong-answer"
+    >
+      <h2>
+         
+        <i
+          class="fas fa-times-circle"
+        />
+         
+      </h2>
+    </div>
+    <span />
+  </section>
+</DocumentFragment>
+`;

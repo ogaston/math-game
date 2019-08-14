@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Timmer component Matches the snapshot 1`] = `
+<DocumentFragment>
+  <span>
+    <i
+      class="fas fa-clock"
+    />
+     
+    <b>
+      50
+    </b>
+  </span>
+</DocumentFragment>
+`;

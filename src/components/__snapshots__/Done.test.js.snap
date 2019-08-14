@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Done component Matches the snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    <h1>
+      GAME OVER
+    </h1>
+    <hr
+      style="height: 0px; border: 0.5px solid #61dafb;"
+    />
+    <h3>
+      FINAL SCORE 
+      <b
+        style="color: rgb(97, 218, 251); font-weight: bold;"
+      >
+        100
+      </b>
+    </h3>
+    <br />
+    <h3
+      style="font-size: 1.5em; color: rgb(97, 218, 251); font-family: fantasy; cursor: pointer;"
+    >
+      RETRY
+    </h3>
+    <h5
+      style="color: white; font-family: fantasy; cursor: pointer; font-size: 1em; margin: 0.1em auto 3em;"
+    >
+      Another player
+    </h5>
+  </div>
+</DocumentFragment>
+`;

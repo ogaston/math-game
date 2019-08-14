@@ -1,4 +1,4 @@
-import * as Storage from './storage'
+import Storage from './storage'
 import MathHelper from './math'
 
 export {

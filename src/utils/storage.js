@@ -1,5 +1,5 @@
 
-const Persistent = {
+export const Persistent = {
 
     set(key, value) {
         localStorage.setItem(key, value)
@@ -12,7 +12,7 @@ const Persistent = {
 }
 
 
-const Session = {
+export const Session = {
 
     set(key, value) {
         sessionStorage.setItem(key, value)
@@ -24,7 +24,7 @@ const Session = {
 
 }
 
-export {
+export default {
     Persistent,
     Session
 };

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types'
 
 class Beginning extends React.Component {
   state = {
@@ -7,28 +8,31 @@ class Beginning extends React.Component {
   intervalRef;
 
   componentDidMount() {
-    this.intervalRef = setInterval(
-      () => this.setState(prevState => { 
-          if (prevState.msg === 1) {
-            return { msg: "GO" };
-          }
-
-          if (prevState.msg === "GO") {
-            return { msg: undefined };
-          }
-          return {msg: prevState.msg - 1 }
-        }),
-      1000
-    );
+    this.intervalRef = setInterval(() => this.setState(this.handleCount), 1000);
   }
+
+  handleCount = prevState => {
+    if (prevState.msg === 1) {
+      return { msg: "GO" };
+    }
+
+    if (prevState.msg === "GO") {
+      return { msg: undefined };
+    }
+    return { msg: prevState.msg - 1 };
+  };
 
   shouldComponentUpdate(nextProps, nextState) {
     if (nextState.msg === undefined) {
-        clearInterval(this.intervalRef);
-        this.props.isComplete();
-        return false;
+      clearInterval(this.intervalRef);
+      this.props.isComplete();
+      return false;
     }
     return true;
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.intervalRef);
   }
 
   render() {
@@ -41,5 +45,9 @@ class Beginning extends React.Component {
   }
 }
 
+
+Beginning.propTypes = {
+  isComplete: PropTypes.func.isRequired,
+}
 
 export default Beginning;

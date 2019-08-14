@@ -6,8 +6,8 @@
   "dependencies": {
     "gh-pages": "^2.0.1",
     "moment": "^2.24.0",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
     "react-redux": "^6.0.1",
     "react-scripts": "2.1.8",
     "redux": "^4.0.1",
@@ -29,5 +29,10 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "@testing-library/react": "^9.1.1",
+    "prop-types": "^15.7.2",
+    "react-testing-library": "^8.0.1"
+  }
 }

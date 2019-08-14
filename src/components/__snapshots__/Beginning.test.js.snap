@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Beginning component Matches the snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    <h3>
+      GET READY...
+    </h3>
+    <h1>
+      3
+    </h1>
+  </div>
+</DocumentFragment>
+`;

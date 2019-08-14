@@ -1,4 +1,4 @@
-const PRIMES_NUMBERS = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
+export const PRIMES_NUMBERS = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
 
 
 /**
@@ -19,7 +19,7 @@ const getRandomSymbol = () => {
  * @param {string} symbol 
  * @param {number} prev 
  */
-const evaluate = (symbol, prev) => {
+export const evaluate = (symbol, prev) => {
 
     // Division
     if  (symbol === "/") {
@@ -94,7 +94,7 @@ const generateProblem = (points) => {
  * @param {number} value 
  */
 const compare = (expression, value) => {
-   return solve(expression) === +value
+   return solve(expression) === Number(value)
 }
 
 /**
@@ -103,7 +103,13 @@ const compare = (expression, value) => {
  */
 const solve = (expression) => {
     // eslint-disable-next-line no-eval
-    return eval(expression)
+    const result = eval(expression)
+    
+    // Returning just two fixed-point
+    if (result.toString().includes(".")) {
+        return Number(result.toFixed(2))
+    }
+    return result;
 }
 
 

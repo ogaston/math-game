@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 class Timmer extends React.Component {
 
@@ -49,6 +50,15 @@ class Timmer extends React.Component {
             </span>
         )
     }
+}
+
+Timmer.propTypes = {
+    seconds: PropTypes.number.isRequired,
+    level: PropTypes.number.isRequired,
+}
+
+Timmer.defaultProps = {
+    level: 0    
 }
 
 export default Timmer;

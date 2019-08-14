@@ -15,12 +15,20 @@ class Quiz extends React.Component {
         streaks: 0
     };
 
+
+    earnLife = () => {
+        this.props.onEarnLife()
+        this.showModal("success", "STREAK!! You won a life ♥");
+        this.setState({
+            streaks: 0
+        })
+    }
+
     correctAnswer = () => {
         if (this.state.streaks > 2) {
-            this.props.onEarnLife()
-            this.showModal("sucess", "STREAK!! You won a life ♥");
+            this.earnLife()
         } else {
-            this.showModal("sucess");
+            this.showModal("success");
         }
 
         this._isMounted && this.props.onCorretAnswer()
@@ -58,12 +66,11 @@ class Quiz extends React.Component {
         this.setState({
             streaks: 0
         })
-        this.showModal("error", MathHelper.solve(this.state.problem));
+        this.showModal("error", MathHelper.solve(this.state.problem).toString());
         this.nextProblem()
     };
 
     nextProblem = () => {
-        console.log(this.state)
         setTimeout(() => {
             this.getProblem()
             this._isMounted && this.setState({
@@ -87,7 +94,7 @@ class Quiz extends React.Component {
         const val = ev.target.value
 
         this.setState({
-            answer: Number(val.match(/\d+/g))
+            answer: Number(val.match(/((-?)\d+)/g)) // accept just numbers and the minus symbol
         });
     };
 

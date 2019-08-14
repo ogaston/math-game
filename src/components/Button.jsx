@@ -1,6 +1,7 @@
 import React from "react";
+import PropTypes from 'prop-types'
 
-export default function Button({ children, isClicked }) {
+function Button({ children, isClicked }) {
     return (
         <button
             className="App-link"
@@ -10,3 +11,10 @@ export default function Button({ children, isClicked }) {
         </button>
     )
 }
+
+Button.propTypes = {
+    children: PropTypes.any.isRequired,
+    isClicked: PropTypes.func,
+}
+
+export default Button;
