@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/math-game/precache-manifest.608e56384d5939741cbbe0807524e85a.js"
+  "/math-game/precache-manifest.04deaf65aa4335276adde1dcf766195c.js"
 );
 
 workbox.clientsClaim();
