@@ -12,11 +12,11 @@ import {
 
 const initialState = {
   points: 0,
-  lifes: 5,
+  lifes: 3,
   seconds: 20,
   level: 1,
   isFinished: false,
-  isStarted: false,
+  isStarted: false
 };
 
 export const answerQuiz = (state = initialState, action = {}) => {
@@ -51,13 +51,13 @@ export const answerQuiz = (state = initialState, action = {}) => {
         lifes: 3,
         seconds: 20,
         level: 1,
-        isFinished: false,
+        isFinished: false
       });
     case START_GAME:
       return Object.assign({}, state, {
-        isStarted: true,
+        isStarted: true
       });
-    case EARN_LIFE: 
+    case EARN_LIFE:
       return Object.assign({}, state, {
         lifes: state.lifes + 1
       });
@@ -68,9 +68,9 @@ export const answerQuiz = (state = initialState, action = {}) => {
         seconds: 20,
         level: 1,
         isFinished: false,
-        isStarted: false,
+        isStarted: false
       });
     default:
       return state;
   }
-}
+};
